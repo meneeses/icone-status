@@ -19,4 +19,4 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         with:
-          TYPE: static-site
+          command: static-site
