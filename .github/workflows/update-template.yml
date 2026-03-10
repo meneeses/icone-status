@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: Upptime — Update template
         uses: upptime/uptime-monitor@master
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
         with:
-          UPPTIME_GH_APP_TOKEN: ${{ secrets.GH_PAT }}
           TYPE: update-template

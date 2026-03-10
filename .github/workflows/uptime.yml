@@ -17,5 +17,5 @@ jobs:
     steps:
       - name: Upptime — Check sites
         uses: upptime/uptime-monitor@master
-        with:
-          UPPTIME_GH_APP_TOKEN: ${{ secrets.GH_PAT }}
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
