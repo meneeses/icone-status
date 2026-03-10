@@ -1,0 +1,21 @@
+name: Uptime CI
+
+on:
+  schedule:
+    # Verifica a cada 5 minutos (limite mínimo do GitHub Actions)
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [trigger_uptime_workflow]
+
+jobs:
+  uptime:
+    name: Verificar disponibilidade dos serviços
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Upptime — Check sites
+        uses: upptime/uptime-monitor@master
+        with:
+          UPPTIME_GH_APP_TOKEN: ${{ secrets.GH_PAT }}

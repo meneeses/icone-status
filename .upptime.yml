@@ -1,0 +1,52 @@
+# ============================================================
+# Upptime — Configuração de monitoramento da Ícone Academy
+# Docs: https://upptime.js.org/docs/configuration
+# ============================================================
+
+# ⚠️  Preencha com o usuário/org do GitHub onde este repo ficará
+owner: GITHUB_ORG
+repo: icone-status
+
+# Assignees para notificações de incidentes (GitHub Issues)
+assignees:
+  - GITHUB_ORG
+
+# ─── Serviços monitorados ────────────────────────────────────
+sites:
+  - name: Plataforma (App)
+    url: https://icone.academy
+    expectedStatusCodes:
+      - 200
+
+  - name: API — Liveness
+    url: https://api.icone.academy/health/live
+    expectedStatusCodes:
+      - 200
+      - 204
+
+  - name: API — Health Completo
+    url: https://api.icone.academy/health
+    expectedStatusCodes:
+      - 200
+
+# ─── Página de status ────────────────────────────────────────
+status-website:
+  cname: status.icone.academy
+  name: Ícone Status
+  description: Acompanhe o status em tempo real dos serviços da Ícone Academy
+  theme: light
+  favicon: https://icone.academy/favicon.ico
+  logo: https://icone.academy/logo.png
+  navbar:
+    - title: Plataforma
+      href: https://icone.academy
+    - title: Suporte
+      href: mailto:suporte@icone.academy
+  i18n:
+    footer: >
+      Monitorado com <a href="https://upptime.js.org">Upptime</a> —
+      <a href="https://icone.academy">Ícone Academy</a>
+
+# ─── Notificações ────────────────────────────────────────────
+# Para ativar notificações por e-mail, Slack ou outras integrações,
+# consulte: https://upptime.js.org/docs/notifications

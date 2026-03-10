@@ -1,0 +1,21 @@
+name: Static Site CI
+
+on:
+  # Reconstrói a página de status a cada push (incidentes, atualizações)
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  static-site:
+    name: Gerar página de status
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Upptime — Build static site
+        uses: upptime/uptime-monitor@master
+        with:
+          UPPTIME_GH_APP_TOKEN: ${{ secrets.GH_PAT }}
+          TYPE: static-site

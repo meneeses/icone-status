@@ -1,0 +1,20 @@
+name: Update Template
+
+on:
+  schedule:
+    # Atualiza o template do Upptime mensalmente
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: Atualizar template Upptime
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Upptime — Update template
+        uses: upptime/uptime-monitor@master
+        with:
+          UPPTIME_GH_APP_TOKEN: ${{ secrets.GH_PAT }}
+          TYPE: update-template
