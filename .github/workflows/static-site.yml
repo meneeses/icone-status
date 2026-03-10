@@ -29,6 +29,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Buscar dados reais do backend
+        run: |
+          curl -sf --max-time 10 https://api.icone.academy/health -o health-full.json \
+            && echo "health-full ok" || echo '{}' > health-full.json
+          curl -sf --max-time 5  https://api.icone.academy/health/live -o health-live.json \
+            && echo "health-live ok" || echo '{}' > health-live.json
+          echo "--- health-full.json ---"
+          cat health-full.json
+
       - name: Gerar HTML da página de status
         run: node .github/scripts/generate-site.js
 
